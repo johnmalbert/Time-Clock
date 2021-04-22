@@ -1,0 +1,33 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="card" style="width: 18rem;">
+    <div class="card-header">
+        Create a New User
+    </div>
+    <ul class="list-group list-group-flush">        
+        <form asp-action="CreateUser" asp-controller="Home" method="POST">
+            <li class="list-group-item">
+
+                <div class='form-group'>
+                    <i class="fa fa-user icon"></i>
+                    <input class="form-control mt-2" asp-for="Name" placeholder= "Full Name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div> 
+                <div class='form-group'>
+                    <input type="password" class="form-control" asp-for="Pin" placeholder= "Enter 4 Digit Pin">
+                    <span asp-validation-for="Pin" class="text-danger"></span>
+                </div> 
+                <div class='form-group'>
+                    <input type="password" class="form-control" asp-for="ConfirmPin" placeholder= "Confirm Pin">
+                    <span asp-validation-for="ConfirmPin" class="text-danger"></span>
+                </div> 
+            <button type="submit" class="btn btn-primary m-2">Create User</button>
+            </li>
+        </form>
+    </ul>
+    </div>
+</div>

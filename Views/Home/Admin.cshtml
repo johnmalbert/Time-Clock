@@ -1,0 +1,23 @@
+@model User
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="card" style="width: 18rem;">
+    <div class="card-header">
+        Admin Login
+    </div>
+    <ul class="list-group list-group-flush">        
+        <form asp-action="AdminLogin" asp-controller="Home" method="POST">
+            <li class="list-group-item">
+                <div class='form-group'>
+                    <input type="password" class="form-control" asp-for="Pin" placeholder= "Enter Password">
+                    <span asp-validation-for="Pin" class="text-danger"></span>
+                </div> 
+            <button type="submit" class="btn btn-primary m-2">Login as Admin</button>
+            </li>
+        </form>
+    </ul>
+    </div>
+</div>

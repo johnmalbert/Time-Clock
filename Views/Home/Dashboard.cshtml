@@ -1,0 +1,76 @@
+@model TimeStamp
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container text-center p-5">
+    
+<div class="row justify-content-around">
+    <div class="col-6">
+        <div class="text-center">
+            <div class="card m-auto" style="width: 18rem;">
+            <div class="card-header">
+                Log On
+            </div>
+            <ul class="list-group list-group-flush">        
+                <form asp-action="CreateStamp" asp-controller="Home" method="POST">
+                    
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="ID" placeholder="ID Number">
+                            <span asp-validation-for="ID" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="Pin" placeholder="Four Digit Pin">
+                            <span asp-validation-for="Pin" class="text-danger"></span>
+                        </div>
+                        <div class='form-group'>
+                            <input class="form-control" asp-for="Job" placeholder= "Enter Job Name">
+                            <span asp-validation-for="Job" class="text-danger"></span>
+                        </div> 
+                        <button type="submit" class="btn btn-primary m-2">Log on</button>
+                    </li>
+                </form>
+            </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="text-center">
+            <div class="card m-auto" style="width: 18rem;">
+            <div class="card-header">
+                Log Out
+            </div>
+            <ul class="list-group list-group-flush">        
+                <form asp-action="Logout" asp-controller="Home" method="POST">
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="ID" placeholder="ID Number">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="Pin" placeholder="Four Digit Pin">
+                            <span asp-validation-for="Status" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary m-2">Log Off</button>
+                    </li>
+                </form>
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="card m-auto" style="width: 100%;">
+    <div class="card-header">
+        Recent Activity
+    </div>
+    <ul style="width: 100%; height: 25rem; overflow: auto;">
+        @foreach(TimeStamp stamp in ViewBag.Stamps)
+        {
+            @if(stamp.Job == null)
+            {
+                <li class="text-danger">User ID#: @stamp.UserId: @stamp.User.Name Logged Off @stamp.Job @stamp.CreatedAt</li>
+            }
+            <li>User ID#: @stamp.UserId: @stamp.User.Name Job: @stamp.Job @stamp.CreatedAt</li>
+        }
+    </ul>
+</div>
