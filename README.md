@@ -5,6 +5,7 @@ This project was built using C#, ASP.NET, and MySQL. Here's how you can get this
 
 Create an appsettings.json file on the project level of the application.
 In appsettings.json, enter the following code, substituting your password, port (commonly 3306), and database name
+```
 {
     "Logging": {
       "LogLevel": {
@@ -20,6 +21,7 @@ In appsettings.json, enter the following code, substituting your password, port 
           "ConnectionString": "server=localhost;userid=root;password=YOUR_PW;port=YOUR_PORT;database=DB_NAME;SslMode=None"
       }
   }
+ ```
 Save appsettings.json.
 
 If you don't have Entity Framework Core installed, run
