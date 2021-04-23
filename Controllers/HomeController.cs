@@ -27,7 +27,8 @@ namespace Time_Clock.Controllers
             //show the most recent stamps
             ViewBag.Stamps = _context.TimeStamps
                 .Include(t => t.User)
-                .ToList().OrderByDescending(a => a.CreatedAt);
+                .ToList().OrderByDescending(a => a.CreatedAt)
+                .Take(20);
             return View();
         }
 

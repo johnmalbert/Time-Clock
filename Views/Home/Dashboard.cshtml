@@ -2,10 +2,10 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+
 <div class="container text-center p-5">
-    
 <div class="row justify-content-around">
-    <div class="col-6">
+    <div class="col">
         <div class="text-center">
             <div class="card m-auto" style="width: 18rem;">
             <div class="card-header">
@@ -34,15 +34,15 @@
             </div>
         </div>
     </div>
-    <div class="col-6">
+    <div class="col">
         <div class="text-center">
             <div class="card m-auto" style="width: 18rem;">
             <div class="card-header">
                 Log Out
             </div>
-            <ul class="list-group list-group-flush">        
+            <ul class="list-group list-group-flush pt-2">        
                 <form asp-action="Logout" asp-controller="Home" method="POST">
-                    <li class="list-group-item">
+                    <li class="list-group-item pb-4">
                         <div class="form-group">
                             <input type="text" class="form-control" name="ID" placeholder="ID Number">
                         </div>
@@ -57,20 +57,52 @@
             </div>
         </div>
     </div>
-</div>
-</div>
-<div class="card m-auto" style="width: 100%;">
-    <div class="card-header">
-        Recent Activity
+    <div class="col">
+        <div class="card m-auto" style="width: 18rem; height: 18rem;">
+            <div class="card-header">
+                    Current Time
+            </div>
+            <h3 class="text-secondary" style="padding-top: 25%;">
+                <div id="time"></div>
+                <div id="date"></div>
+            </h3>
+        </div>
     </div>
-    <ul style="width: 100%; height: 25rem; overflow: auto;">
+</div>
+</div>
+<div style="max-height: 25rem; overflow: auto">
+    <table class="table table-light text-center">
+    <thead>
+        <tr>
+            <th scope="col">User ID#</th>
+            <th scope="col">Name:</th>
+            <th scope="col">Job:</th>
+            <th scope="col">Time:</th>
+        </tr>
+    </thead>
+    <tbody>
         @foreach(TimeStamp stamp in ViewBag.Stamps)
         {
             @if(stamp.Job == null)
             {
-                <li class="text-danger">User ID#: @stamp.UserId: @stamp.User.Name Logged Off @stamp.Job @stamp.CreatedAt</li>
+            <tr class="text-danger">
+                <td>@stamp.UserId</td>
+                <td>@stamp.User.Name</td>
+                <td>Logged Off</td>
+                <td>@stamp.CreatedAt</td>
+            </tr>
             }
-            <li>User ID#: @stamp.UserId: @stamp.User.Name Job: @stamp.Job @stamp.CreatedAt</li>
+            else
+            {
+                <tr>
+                    <td>@stamp.UserId</td>
+                    <td>@stamp.User.Name</td>
+                    <td>@stamp.Job</td>
+                    <td>@stamp.CreatedAt</td>
+                </tr>
+            }
         }
-    </ul>
+    </tbody>
+</table>
 </div>
+
