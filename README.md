@@ -1,3 +1,4 @@
+![timeclock](https://user-images.githubusercontent.com/24249474/115799315-11d7be80-a38d-11eb-95fe-b868184e06fc.gif)
 # Time-Clock
 Almost every hourly employee in the world has had to punch in or punch out at some point in their lifetime. This project (a work in progress) attempts to limit the headache that clocking in tends to create.
 
