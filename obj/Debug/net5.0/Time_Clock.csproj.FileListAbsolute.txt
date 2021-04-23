@@ -1,5 +1,4 @@
 C:\Users\johnm\Documents\Coding_Dojo\C#\Time_Clock\bin\Debug\net5.0\appsettings.Development.json
-C:\Users\johnm\Documents\Coding_Dojo\C#\Time_Clock\bin\Debug\net5.0\appsettings.json
 C:\Users\johnm\Documents\Coding_Dojo\C#\Time_Clock\bin\Debug\net5.0\Time_Clock.exe
 C:\Users\johnm\Documents\Coding_Dojo\C#\Time_Clock\bin\Debug\net5.0\Time_Clock.deps.json
 C:\Users\johnm\Documents\Coding_Dojo\C#\Time_Clock\bin\Debug\net5.0\Time_Clock.runtimeconfig.json
@@ -50,3 +49,4 @@ C:\Users\johnm\Documents\Coding_Dojo\C#\Time_Clock\bin\Debug\net5.0\Pomelo.Entit
 C:\Users\johnm\Documents\Coding_Dojo\C#\Time_Clock\bin\Debug\net5.0\Pomelo.JsonObject.dll
 C:\Users\johnm\Documents\Coding_Dojo\C#\Time_Clock\obj\Debug\net5.0\Razor\Views\Home\Dashboard.cshtml.g.cs
 C:\Users\johnm\Documents\Coding_Dojo\C#\Time_Clock\obj\Debug\net5.0\Razor\Views\Home\Admin.cshtml.g.cs
+C:\Users\johnm\Documents\Coding_Dojo\C#\Time_Clock\bin\Debug\net5.0\appsettings.json

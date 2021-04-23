@@ -12,10 +12,12 @@ function checkTime(i) {
 function startTime() {
     var today = new Date();
     var h = today.getHours() % 12;
+    if(h == 0)
+        h=12;
     var m = today.getMinutes();
     var s = today.getSeconds();
     var y = today.getFullYear();
-    var mo  = today.getMonth();
+    var mo  = today.getMonth() + 1;
     var d = today.getDate().toFixed();
     // add a zero in front of numbers<10
     m = checkTime(m);
