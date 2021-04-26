@@ -107,6 +107,10 @@ namespace Time_Clock.Controllers
                 return View("Dashboard");
             }
 
+            //clock out of old job 
+            List<TimeStamp> lastStamp = _context.TimeStamps.Where(t => t.UserId == userInDB.UserId).ToList();
+            var lastJob = lastStamp[lastStamp.Count - 1];
+            lastJob.timeSpent = DateTime.Now - lastStamp[lastStamp.Count - 1].CreatedAt;
             stamp.UserId = userInDB.UserId;
             _context.Add(stamp);
             _context.SaveChanges();
@@ -149,8 +153,6 @@ namespace Time_Clock.Controllers
 
             //get the last job user was working on. IF he wasn't logged in, don't create stamp
             List<TimeStamp> lastStamp = _context.TimeStamps.Where(t => t.UserId == userInDB.UserId).ToList();
-            foreach(TimeStamp s in lastStamp)
-                Console.WriteLine(s.Job);
 
             if(lastStamp[lastStamp.Count - 1].Job == null)
             {
@@ -158,9 +160,15 @@ namespace Time_Clock.Controllers
                 ModelState.AddModelError("Status", "Employee Not on Job");
                 return View("Dashboard");
             }
+            else 
+            {
+                var timeSpent = DateTime.Now - lastStamp[lastStamp.Count - 1].CreatedAt;
+                // Add time spent to the previous job
+                var lastJob = lastStamp[lastStamp.Count - 1];
+                lastJob.timeSpent = timeSpent;
+            }
 
             //log the user off the job (create new stamp for LoggedOff)
-            Console.WriteLine("Log off " + userInDB.Name);
             TimeStamp newStamp = new TimeStamp();
             newStamp.UserId = userInDB.UserId;
             newStamp.Job = null;

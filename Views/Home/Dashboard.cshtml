@@ -1,3 +1,4 @@
+@using System;
 @model TimeStamp
 @{
     ViewData["Title"] = "Home Page";
@@ -5,7 +6,7 @@
 
 <div class="container text-center p-5">
 <div class="row justify-content-around">
-    <div class="col">
+    <div class="col sm-4 mt-4">
         <div class="text-center">
             <div class="card m-auto" style="width: 18rem;">
             <div class="card-header">
@@ -34,7 +35,7 @@
             </div>
         </div>
     </div>
-    <div class="col">
+    <div class="col sm-3 mt-4">
         <div class="text-center">
             <div class="card m-auto" style="width: 18rem;">
             <div class="card-header">
@@ -57,7 +58,7 @@
             </div>
         </div>
     </div>
-    <div class="col">
+    <div class="col sm-3 mt-4">
         <div class="card m-auto" style="width: 18rem; height: 18rem;">
             <div class="card-header">
                     Current Time
@@ -78,6 +79,7 @@
             <th scope="col">Name:</th>
             <th scope="col">Job:</th>
             <th scope="col">Time:</th>
+            <th scope="col">Time Logged:</th>
         </tr>
     </thead>
     <tbody>
@@ -90,6 +92,7 @@
                 <td>@stamp.User.Name</td>
                 <td>Logged Off</td>
                 <td>@stamp.CreatedAt</td>
+                <td></td>
             </tr>
             }
             else
@@ -99,6 +102,14 @@
                     <td>@stamp.User.Name</td>
                     <td>@stamp.Job</td>
                     <td>@stamp.CreatedAt</td>
+                    @if(stamp.timeSpent.TotalMinutes > 0)
+                    {
+                        <td>@Math.Floor(@stamp.timeSpent.TotalHours) Hours, @stamp.timeSpent.Minutes Minutes</td>
+                    }
+                    else
+                    {
+                        <td></td> 
+                    }
                 </tr>
             }
         }
